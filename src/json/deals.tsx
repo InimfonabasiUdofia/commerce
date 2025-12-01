@@ -1,13 +1,3 @@
-interface Product {
-   id: number,
-  name: string;
-  brand:string;
-  category:string;
-  price: number;
-  dealTag:string;
-  description: string;
-  img: string;
-}
 
 export const productsdeal = [
   {
