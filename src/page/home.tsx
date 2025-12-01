@@ -170,7 +170,7 @@ export default function Home() {
                 <img className="w-full h-32 bg-gray-200 object-cover" src={c.img} alt="" />
                 <div />
 
-                <div className="text-center py-2 text-sm font-medium">
+                <div className="text-center py-2 text-sm font-medium truncate">
                   {c.title}
                 </div>
               </div>

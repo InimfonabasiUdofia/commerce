@@ -155,7 +155,7 @@ export const Navbar = ({ searchclick }: NavProps) => {
               }}
               type="text"
               placeholder="Search products..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg  "
+              className="w-full  px-2 py-2 border border-gray-300 rounded-lg  "
             />
             <button onClick={() => {
               applyFilter();

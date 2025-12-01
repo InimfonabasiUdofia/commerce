@@ -25,36 +25,38 @@ export default function Cart() {
     const CartItem = ({ title, price,  image, quantity }: cardstuff) => {
         return (
 
-            <div className="flex items-start justify-between bg-white shadow-md  p-4 mb-4 w-full">
-                <div className="flex items-start gap-4">
-                    <img src={image} alt={title} className="w-28 h-28 object-cover " />
-                    <div>
-                        <h2 className="font-semibold text-lg text-gray-800 max-w-xs">{title}</h2>
-                        <button className="text-red-500 text-sm mt-2 flex items-center gap-1 pt-4"> Remove</button>
-                    </div>
-                </div>
+           <div className="flex flex-col sm:flex-row items-start justify-between gap-4 bg-white shadow-md p-4 mb-4 w-full">
+    <div className="flex items-start gap-3 sm:gap-4 w-full sm:w-auto">
+        <img src={image} alt={title} className="w-20 h-20 sm:w-28 sm:h-28 object-cover rounded shrink-0" />
+        <div className="flex-1 min-w-0">
+            <h2 className="font-semibold text-base sm:text-lg text-gray-800 line-clamp-2">{title}</h2>
+            <button className="text-red-500 text-sm mt-2 flex items-center md:pt-10 pt-1 gap-1 hover:text-red-600 transition-colors">
+      
+                Remove
+            </button>
+        </div>
+    </div>
 
-                <div className="flex flex-col items-end">
-                    <p className="text-[1rem] font-bold text-gray-900 pt-3">₦ {price.toLocaleString()}</p>
+    <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start w-full sm:w-auto gap-4 sm:gap-3">
+        <p className="text-lg sm:text-xl font-bold text-gray-900 order-2 sm:order-1">₦ {price.toLocaleString()}</p>
 
-
-                    <div className="flex items-center gap-2 mt-2 pt-5">
-                        <button
-                            onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                            className="w-8 h-8 bg-gray-200  flex items-center justify-center"
-                        >
-                            -
-                        </button>
-                        <span className="text-lg font-semibold">{quantity}</span>
-                        <button
-                            onClick={() => setQuantity(quantity + 1)}
-                            className="w-8 h-8 bg-orange-500 text-white  flex items-center justify-center"
-                        >
-                            +
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <div className="flex items-center gap-2 sm:gap-3 order-1 sm:order-2">
+            <button
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                className="w-8 h-8 sm:w-9 sm:h-9 bg-gray-200 hover:bg-gray-300 flex items-center justify-center rounded transition-colors text-gray-700 font-semibold"
+            >
+                -
+            </button>
+            <span className="text-base sm:text-lg font-semibold min-w-8 text-center">{quantity}</span>
+            <button
+                onClick={() => setQuantity(quantity + 1)}
+                className="w-8 h-8 sm:w-9 sm:h-9 bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center rounded transition-colors font-semibold"
+            >
+                +
+            </button>
+        </div>
+    </div>
+</div>
         );
     };
 
