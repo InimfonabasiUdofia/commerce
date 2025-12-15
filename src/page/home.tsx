@@ -74,7 +74,7 @@ export default function Home() {
       img: "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
     },
   ];
-   const [searchclick ,setSearchclick]=useState(false);
+
 
   // Auto-slide
   useEffect(() => {
@@ -114,8 +114,8 @@ export default function Home() {
 
   return (
     <>
-       <Navbar searchclick={setSearchclick} ></Navbar>
-       {!searchclick &&<>
+       <Navbar ></Navbar>
+      
          <div className="  bg-gray-100 ">
         {/* HEADER */}
      
@@ -191,16 +191,32 @@ export default function Home() {
               {Best_value.map((item: Product, i) => (
                 <>
                   <Link to={`/details/${item.id - 1}`}>
-                    <div key={i} className="bg-white shadow pb-2   p- hover:scale-102 transition cursor-pointer">
-                      <img src={item.img} className="w-full h-40 object-cover rounded" />
-                      <h3 className="mt-1 font-semibold p-2 truncate overflow-hidden text-ellipsis ">{item.name}</h3>
-                      <p className=" font-bold  p-2">${item.price}</p>
-                      <div className=" mx-2">
-                        <button className="w-full bg-orange-500 text-white py-1 mt-2 text-lg font-semibold hover:bg-orange-600 transition">
-                          Add to Cart
-                        </button>
+                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition group overflow-hidden cursor-pointer">
+                        <div className="relative overflow-hidden bg-gray-100">
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition duration-300"
+                          />
+                          {item.dealTag !== "Regular" && (
+                            <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                              {item.dealTag}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <div className="p-3">
+                          <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 h-10">
+                            {item.name}
+                          </h3>
+                          <p className="text-lg font-bold text-gray-900 mb-3">
+                            ${item.price.toLocaleString()}
+                          </p>
+                          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition text-sm">
+                            Add to Cart
+                          </button>
+                        </div>
                       </div>
-                    </div>
                   </Link>
                 </>
               ))}
@@ -212,16 +228,32 @@ export default function Home() {
               {Accessories.map((item: Product, i) => (
                 <>
                   <Link to={`/details/${item.id - 1}`}>
-                    <div key={i} className="bg-white shadow pb-2   p- hover:scale-102 transition cursor-pointer">
-                      <img src={item.img} className="w-full h-40 object-cover rounded" />
-                      <h3 className="mt-1 font-semibold p-2 truncate overflow-hidden text-ellipsis ">{item.name}</h3>
-                      <p className=" font-bold  p-2">${item.price}</p>
-                      <div className=" mx-2">
-                        <button className="w-full bg-orange-500 text-white py-1 mt-2 text-lg font-semibold hover:bg-orange-600 transition">
-                          Add to Cart
-                        </button>
+                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition group overflow-hidden cursor-pointer">
+                        <div className="relative overflow-hidden bg-gray-100">
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition duration-300"
+                          />
+                          {item.dealTag !== "Regular" && (
+                            <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                              {item.dealTag}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <div className="p-3">
+                          <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 h-10">
+                            {item.name}
+                          </h3>
+                          <p className="text-lg font-bold text-gray-900 mb-3">
+                            ${item.price.toLocaleString()}
+                          </p>
+                          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition text-sm">
+                            Add to Cart
+                          </button>
+                        </div>
                       </div>
-                    </div>
                   </Link>
                 </>
               ))}
@@ -232,16 +264,32 @@ export default function Home() {
               {Electronics.map((item: Product, i) => (
                 <>
                   <Link to={`/details/${item.id - 1}`}>
-                    <div key={i} className="bg-white shadow pb-2   p- hover:scale-102 transition cursor-pointer">
-                      <img src={item.img} className="w-full h-40 object-cover rounded" />
-                      <h3 className="mt-1 font-semibold p-2 truncate overflow-hidden text-ellipsis ">{item.name}</h3>
-                      <p className=" font-bold  p-2">${item.price}</p>
-                      <div className=" mx-2">
-                        <button className="w-full bg-orange-500 text-white py-1 mt-2 text-lg font-semibold hover:bg-orange-600 transition">
-                          Add to Cart
-                        </button>
+                    <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition group overflow-hidden cursor-pointer">
+                        <div className="relative overflow-hidden bg-gray-100">
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition duration-300"
+                          />
+                          {item.dealTag !== "Regular" && (
+                            <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                              {item.dealTag}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <div className="p-3">
+                          <h3 className="text-sm font-medium text-gray-900 mb-2 line-clamp-2 h-10">
+                            {item.name}
+                          </h3>
+                          <p className="text-lg font-bold text-gray-900 mb-3">
+                            ${item.price.toLocaleString()}
+                          </p>
+                          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition text-sm">
+                            Add to Cart
+                          </button>
+                        </div>
                       </div>
-                    </div>
                   </Link>
                 </>
               ))}
@@ -251,8 +299,8 @@ export default function Home() {
           </main>
         </div>
       </div>
-       </>}
+       </>
      
-    </>
+  
   );
 }
